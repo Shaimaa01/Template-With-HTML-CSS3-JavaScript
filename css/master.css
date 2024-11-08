@@ -2,8 +2,19 @@
     --main-color: #FF9800;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Open Sans", sans-serif;
+}
+
+.container {
+    width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
 }
 
 /* Start Settings Box */
@@ -41,18 +52,23 @@ body {
 .settings-box .settings-container {}
 
 .settings-box .option-box {
-    padding: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #EEE;
+    margin: 10px;
 }
 
 .settings-box .option-box h4 {
     margin: 0;
     color: #666;
+    font-size: 14px;
 }
 
 .settings-box .option-box .colors-list {
     list-style: none;
     text-align: center;
     padding: 0;
+    margin: 10px 0 0;
 }
 
 .settings-box .option-box .colors-list li {
@@ -61,8 +77,8 @@ body {
     background-color: #333;
     border-radius: 50%;
     cursor: pointer;
-    opacity: .5;
     display: inline-block;
+    opacity: 0.4;
 }
 
 .settings-box .option-box .colors-list li.active {
@@ -88,6 +104,26 @@ body {
 .settings-box .option-box .colors-list li:nth-child(5) {
     background-color: #673AB7;
 }
+
+.settings-box .random-backgrounds .yes,
+.settings-box .random-backgrounds .no {
+    width: 50px;
+    background-color: #333;
+    color: #FFF;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.settings-box .random-backgrounds span.active {
+    opacity: 1;
+}
+
 
 /* End Settings Box */
 
@@ -162,6 +198,7 @@ body {
     z-index: 2;
     color: white;
     text-align: center;
+    width: 100%;
 }
 
 .introduction-text h1 {
@@ -181,3 +218,70 @@ body {
 }
 
 /* End Landing Page */
+
+/* Start About Us */
+.about-us {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.about-us .info-box {
+    flex: 1;
+    padding: 30px;
+}
+
+.about-us .info-box h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 10px;
+}
+
+.about-us .info-box p {
+    line-height: 1.8;
+    color: #767676;
+    margin: 0;
+}
+
+.about-us .image-box {
+    flex: 1;
+    text-align: center;
+}
+
+.about-us .image-box img {
+    width: 250px;
+}
+
+/* End About Us */
+
+/* start Our Skills */
+.skills {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #EEE;
+}
+
+.skills h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 50px;
+    text-align: center;
+}
+
+.skills .skill-box{
+    background-color: #FFF;
+    display: flex;
+    padding:15px;
+    margin-bottom:15px;
+}
+.skills .skill-box .skill-name{
+
+}
+.skills .skill-box .skill-progress{
+height: 30px;
+width:100px;
+}
+/* End Our Skills */
