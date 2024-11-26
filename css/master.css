@@ -49,8 +49,6 @@ body {
     padding: 8px 0;
 }
 
-.settings-box .settings-container {}
-
 .settings-box .option-box {
     padding: 10px;
     text-align: center;
@@ -271,17 +269,64 @@ body {
     text-align: center;
 }
 
-.skills .skill-box{
+.skills .skill-box {
     background-color: #FFF;
     display: flex;
-    padding:15px;
-    margin-bottom:15px;
+    padding: 15px;
+    margin-bottom: 15px;
 }
-.skills .skill-box .skill-name{
 
+.skills .skill-box .skill-name {
+    font-weight: bold;
+    width: 220px;
+    text-align: center;
+    line-height: 30px;
 }
-.skills .skill-box .skill-progress{
-height: 30px;
-width:100px;
+
+.skills .skill-box .skill-progress {
+    height: 30px;
+    width: 100%;
+    background-color: #f6f6f6;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
 }
+
+.skills .skill-box .skill-progress span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--main-color);
+    transition:all .5s;
+}
+
 /* End Our Skills */
+
+/* Start Gallery */
+
+.gallery{
+    padding-top:50px;
+    padding-bottom: 50px;
+}
+.gallery h2{
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 0 0 50px;
+    text-align: center;
+}
+.gallery .images-box{
+text-align:center;
+}
+.gallery .images-box img{
+width:200px;
+height: 140px;
+background-color: #F6F6F6;
+border:1px solid #CCC;
+margin:5px;
+cursor:pointer;
+}
+
+/* End Gallery */
