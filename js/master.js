@@ -51,7 +51,7 @@ if (backgroundLocalItem !== null) {
   });
 
   // Add  Active Class
-  if (backgroundLocalItem === "ture") {
+  if (backgroundLocalItem === "true") {
     document.querySelector(".random-backgrounds .yes").classList.add("active");
   } else {
     document.querySelector(".random-backgrounds .no").classList.add("active");
@@ -83,12 +83,7 @@ colorLi.forEach((li) => {
     // Set Color On Local Storage
     localStorage.setItem("color_option", e.target.dataset.color);
 
-    // Remove Active Class From All Childrens
-    e.target.parentElement.querySelectorAll(".active").forEach((element) => {
-      element.classList.remove("active");
-    });
-
-    e.target.classList.add("active");
+    handleActive(e);
   });
 });
 
@@ -99,13 +94,7 @@ const randomBackEl = document.querySelectorAll(".random-backgrounds span");
 randomBackEl.forEach((span) => {
   // Click On Every span
   span.addEventListener("click", (e) => {
-    // Remove Active Class From All span
-    e.target.parentElement.querySelectorAll(".active").forEach((element) => {
-      element.classList.remove("active");
-    });
-
-    // Add active Class On Self
-    e.target.classList.add("active");
+    handleActive(e);
 
     if (e.target.dataset.background === "yes") {
       backgroundOption = true;
@@ -114,6 +103,7 @@ randomBackEl.forEach((span) => {
     } else {
       backgroundOption = false;
       clearInterval(backgroundInterval);
+      backgroundInterval = null;
       localStorage.setItem("background-option", false);
     }
   });
@@ -251,3 +241,88 @@ document.addEventListener("click", function (e) {
     document.querySelector(".popup-overlay").remove();
   }
 });
+
+// Select All Bullets
+const allBullets = document.querySelectorAll(".nav-bullets .bullet");
+
+// Select All Links
+const allLinks = document.querySelectorAll(".links a");
+
+function scrollToSomewhere(elements) {
+  elements.forEach((ele) => {
+    ele.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      document.querySelector(e.target.dataset.section).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+}
+
+scrollToSomewhere(allBullets);
+scrollToSomewhere(allLinks);
+
+// Handle Active State
+function handleActive(ev) {
+  // Remove Active Class From All Childrens
+  ev.target.parentElement.querySelectorAll(".active").forEach((element) => {
+    element.classList.remove("active");
+  });
+
+  // Add Active Class On Self
+  ev.target.classList.add("active");
+}
+
+let bulletsSpan = document.querySelectorAll(".bullets-option span");
+
+let bulletsContainer = document.querySelector(".nav-bullets");
+
+let bulletLocalItem = localStorage.getItem("bullets_option");
+
+if (bulletLocalItem !== null) {
+  bulletsSpan.forEach((span) => {
+    span.classList.remove("active");
+  });
+
+  if (bulletLocalItem === "block") {
+    bulletsContainer.style.display = "block";
+
+    document.querySelector(".bullets-option .yes").classList.add("active");
+  } else {
+    bulletsContainer.style.display = "none";
+
+    document.querySelector(".bullets-option .no").classList.add("active");
+  }
+}
+
+bulletsSpan.forEach((span) => {
+  span.addEventListener("click", (e) => {
+    if (span.dataset.display == "show") {
+      bulletsContainer.style.display = "block";
+
+      localStorage.setItem("bullets_option", "block");
+    } else {
+      bulletsContainer.style.display = "none";
+
+      localStorage.setItem("bullets_option", "none");
+    }
+
+    handleActive(e);
+  });
+});
+
+// Reset Button
+document.querySelector(".reset-options").onclick = function () {
+  localStorage.removeItem("background-option");
+
+  localStorage.removeItem("bullets_option");
+
+  localStorage.removeItem("color_option");
+
+  localStorage.removeItem("last-background");
+
+  // Reload Window
+  window.location.reload();
+};
+
