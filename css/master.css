@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    width: 1170px;
+    /* width: 1170px; */
     padding-left: 15px;
     padding-right: 15px;
     margin: auto;
@@ -232,12 +232,14 @@ body {
 
 }
 
-.header-area .links {
-    list-style: none;
+.header-area .links-container {
     width: 100%;
     text-align: right;
+}
+
+.header-area .links {
+    list-style: none;
     padding-left: 0;
-    padding-right: 20px;
 }
 
 .header-area .links li {
@@ -257,6 +259,38 @@ body {
     color: var(--main-color);
 }
 
+.header-area .toggle-menu {
+    background: none;
+    border: none;
+    width: 40px;
+    cursor: pointer;
+    margin-top: 15px;
+    display: none;
+    position: relative;
+}
+
+.header-area .toggle-menu.menu-active:before {
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff1c transparent;
+    position: absolute;
+    bottom: -15px;
+    left: 10px;
+}
+
+.header-area .toggle-menu:focus {
+    outline: none;
+}
+
+.header-area .toggle-menu span {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    height: 3px;
+    margin-bottom: 3px;
+}
+
 .introduction-text {
     position: absolute;
     left: 50%;
@@ -265,12 +299,18 @@ body {
     z-index: 2;
     color: white;
     text-align: center;
-    width: 100%;
+    width: 95%;
 }
 
 .introduction-text h1 {
     font-size: 34px;
     margin: 0 0 12px;
+}
+
+@media (max-width:575px) {
+    .introduction-text h1 {
+        font-size: 26px;
+    }
 }
 
 .introduction-text h1 span {
@@ -284,6 +324,38 @@ body {
     margin: 0;
 }
 
+@media(max-width:991px) {
+    .header-area .links {
+        display: none;
+    }
+
+    .header-area .links.open {
+        background-color: #ffffff1c;
+        padding: 10px;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 44px;
+        width: 50%;
+        border-radius: 4px;
+        text-align: left;
+    }
+
+    .header-area .links.open li {
+        display: block;
+        margin: 10px;
+    }
+
+    .header-area .links.open li a {
+        color: var(--main-color);
+        font-weight: bold;
+    }
+
+    .header-area .toggle-menu {
+        display: inline-block;
+    }
+}
+
 /* End Landing Page */
 
 /* Start About Us */
@@ -292,6 +364,13 @@ body {
     padding-bottom: 50px;
     display: flex;
     align-items: flex-end;
+}
+
+@media(max-width:991px) {
+    .about-us {
+        display: block;
+        text-align: center;
+    }
 }
 
 .about-us .info-box {
@@ -345,11 +424,25 @@ body {
     margin-bottom: 15px;
 }
 
+@media (max-width:767px) {
+    .skills .skill-box {
+        display: block;
+
+    }
+}
+
 .skills .skill-box .skill-name {
     font-weight: bold;
-    width: 220px;
+    min-width: 220px;
     text-align: center;
     line-height: 30px;
+}
+
+@media (max-width:767px) {
+    .skills .skill-box .skill-name {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 
 .skills .skill-box .skill-progress {
@@ -494,6 +587,25 @@ body {
     position: relative;
 }
 
+@media (max-width:767px) {
+
+    .timeline .timeline-content .left,
+    .timeline .timeline-content .right {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .timeline .timeline-content .left:before,
+    .timeline .timeline-content .right:before {
+        display: none;
+    }
+
+    .timeline .timeline-content .left .content:before,
+    .timeline .timeline-content .right .content:before {
+        display: none;
+    }
+}
+
 .timeline .timeline-content .left {
     float: left;
 }
@@ -594,9 +706,35 @@ body {
     margin-bottom: 40px;
 }
 
+@media (max-width:991px) {
+    .features .feat-box {
+        width: calc(100% / 2)
+    }
+}
+
+@media (max-width:575px) {
+    .features .feat-box {
+        width: calc(100%)
+    }
+}
+
 .features .feat-box img {
-    width: 350px;
+    width: 91%;
     height: 230px;
+    border-radius: 4px;
+}
+
+@media (max-width:575px) {
+    .features .feat-box img {
+       width:70%;
+       height: 230px;
+    }
+}
+
+@media(max-width:768px){
+    .features .feat-box img {
+        height:200px
+     }
 }
 
 .features .feat-box h4 {
@@ -809,3 +947,35 @@ body {
 }
 
 /* End Contact Us  */
+
+/* Start Grid System */
+
+/* small devices */
+@media(min-width:576px) {
+    .container {
+        max-width: 540px
+    }
+}
+
+/* Mediums devices */
+@media(min-width:768px) {
+    .container {
+        max-width: 720px
+    }
+}
+
+/* Desktops*/
+@media(min-width:992px) {
+    .container {
+        max-width: 960px
+    }
+}
+
+/* large screen*/
+@media(min-width:1200px) {
+    .container {
+        max-width: 1140px
+    }
+}
+
+/* End Grid System */
