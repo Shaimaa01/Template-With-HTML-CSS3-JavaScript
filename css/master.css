@@ -22,12 +22,10 @@ body {
     position: fixed;
     left: -200px;
     top: 0;
-    background-color: #FFF;
+    background-color: #ffffff1c;
     width: 200px;
     z-index: 10000;
-    min-height: 100vh;
     transition: 0.3s;
-    border: 2px solid #EEE;
 }
 
 .settings-box.open {
@@ -123,7 +121,7 @@ body {
 }
 
 .settings-box .reset-options {
-    background-color: #F44336;
+    background-color: #4caf50;
     border: none;
     width: 178px;
     margin: 10px auto;
@@ -726,15 +724,15 @@ body {
 
 @media (max-width:575px) {
     .features .feat-box img {
-       width:70%;
-       height: 230px;
+        width: 70%;
+        height: 230px;
     }
 }
 
-@media(max-width:768px){
+@media(max-width:768px) {
     .features .feat-box img {
-        height:200px
-     }
+        height: 200px
+    }
 }
 
 .features .feat-box h4 {
@@ -801,6 +799,12 @@ body {
     z-index: 2;
 }
 
+@media(max-width:767px) {
+    .testimonials h2 {
+        text-align: center;
+    }
+}
+
 .testimonials .ts-box {
     position: relative;
     z-index: 2;
@@ -808,6 +812,32 @@ body {
     float: left;
     background-color: #FFF;
     padding: 20px;
+}
+
+@media(max-width:1199px) {
+    .testimonials .ts-box {
+        height: 248px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+@media(max-width:991px) {
+    .testimonials .ts-box {
+        height: 370px;
+        text-align: center;
+    }
+}
+
+@media(max-width:767px) {
+    .testimonials .ts-box {
+        height: auto;
+        width: 100%;
+        float: none;
+        margin-bottom: 20px;
+
+    }
 }
 
 .testimonials .ts-box:not(:last-of-type) {
@@ -832,6 +862,13 @@ body {
     margin-right: 20px;
     width: 80px;
     height: 80px;
+}
+
+@media(max-width:991px) {
+    .testimonials .ts-box .parson-info img {
+        float: none;
+        margin-right: 0;
+    }
 }
 
 .testimonials .ts-box .parson-info h4 {
@@ -895,6 +932,17 @@ body {
     width: 49%;
 }
 
+@media(max-width:767px) {
+
+    .contact form .left,
+    .contact form .right {
+        float: none;
+        width: 100%;
+    }
+
+
+}
+
 .contact form input:not([type="submit"]),
 .contact form textarea {
     display: block;
@@ -947,6 +995,16 @@ body {
 }
 
 /* End Contact Us  */
+
+/* Start Footer */
+.footer {
+    background-color: #333;
+    color: #EEE;
+    padding: 15px;
+    text-align: center;
+}
+
+/* End Footer */
 
 /* Start Grid System */
 
